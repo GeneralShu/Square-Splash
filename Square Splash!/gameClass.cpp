@@ -1,5 +1,6 @@
 #include "gameClass.h"
 #include "gameTable.h"
+#include "userInterface.h"
 #include "allegro5/allegro.h"
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_ttf.h>
@@ -41,6 +42,10 @@ gameClass::gameClass()
 	signFont = al_load_ttf_font("pirulen.ttf", 12, 0);
 
 	scoreFont = al_load_ttf_font("pirulen.ttf", 26, 0);
+
+	menuFont = al_load_ttf_font("pirulen.ttf", 32, 0);
+
+	banerFont = al_load_ttf_font("pirulen.ttf", 40, 0);
 
 	event_queue = al_create_event_queue();
 
@@ -270,5 +275,20 @@ void gameClass::startGame()
 		doLogic(ev);
 
 		paint();
+	}
+}
+
+void gameClass::go()
+{
+	int menuCounter;
+	menuCounter = myMenu.run_menu(display, event_queue, signFont, menuFont, banerFont, timer);
+	switch (menuCounter)
+	{
+	case 0 :
+		startGame();
+		break;
+	case 1 :
+		//highscores
+		break;
 	}
 }

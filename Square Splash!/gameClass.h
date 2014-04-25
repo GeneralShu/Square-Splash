@@ -6,18 +6,18 @@
 #include <allegro5/allegro_font.h>
 #include "userInterface.h"
 
-class gameClass : public gameGraphics
+class gameClass 
+	: public gameGraphics
 {
 private:
+	userInterface myMenu;
 	gameTable gameObject;
 	score myScore;
-	//userInterface menu;
 
 	ALLEGRO_DISPLAY *display;
 	ALLEGRO_TIMER *timer;
 	ALLEGRO_EVENT_QUEUE *event_queue;
-	ALLEGRO_FONT* scoreFont;
-	ALLEGRO_FONT* signFont;
+	ALLEGRO_FONT* scoreFont, * signFont, * menuFont, *banerFont;
 
 	int cordX, cordY;
 	bool myKeys[5];
@@ -36,5 +36,6 @@ public:
 	void catchMove(const ALLEGRO_EVENT &ev);
 	void paint();
 	void startGame();
+	void go();
 };
 
