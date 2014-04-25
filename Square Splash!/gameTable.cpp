@@ -66,7 +66,10 @@ int gameTable::checkColision(int x, int y)
 	setHorizontal(x, y, horizontal);
 	setVertical(x, y, vertical);
 	if (horizontal >= 3 && vertical >= 3)
+	{
+		setBonuses(horizontal);
 		return horizontal + vertical;
+	}
 	else if (horizontal >= 3)
 		return horizontal;
 	else if (vertical >= 3)

@@ -2,6 +2,7 @@
 #include "gameTable.h"
 #include "gameGraphics.h"
 #include "score.h"
+#include "bestScores.h"
 #include "allegro5/allegro.h"
 #include <allegro5/allegro_font.h>
 #include "userInterface.h"
@@ -13,13 +14,14 @@ private:
 	userInterface myMenu;
 	gameTable gameObject;
 	score myScore;
+	bestScores myBestScores;
 
 	ALLEGRO_DISPLAY *display;
 	ALLEGRO_TIMER *timer;
 	ALLEGRO_EVENT_QUEUE *event_queue;
 	ALLEGRO_FONT* scoreFont, * signFont, * menuFont, *banerFont;
 
-	int cordX, cordY;
+	int cordX, cordY, movesRemaining;
 	bool myKeys[5];
 	bool doExit;
 public:
@@ -35,7 +37,7 @@ public:
 	void doLogic(const ALLEGRO_EVENT &ev);
 	void catchMove(const ALLEGRO_EVENT &ev);
 	void paint();
-	void startGame();
+	int startGame();
 	void go();
 };
 

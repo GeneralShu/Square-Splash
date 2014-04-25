@@ -25,6 +25,8 @@ gameClass::gameClass()
 	cordX = WIDTH / 2;
 	cordY = LENGTH / 2;
 
+	movesRemaining = 30;
+
 	al_init();
 
 	display = al_create_display(1024, 720);
@@ -139,6 +141,7 @@ void gameClass::doLogic(const ALLEGRO_EVENT &ev)
 			makeMove(cordX, cordY, cordX, cordY - 1);
 			afterMove();
 			cordY--;
+			movesRemaining--;
 			myKeys[0] = false;
 			myKeys[4] = false;
 		}
@@ -146,7 +149,8 @@ void gameClass::doLogic(const ALLEGRO_EVENT &ev)
 		{
 			makeMove(cordX, cordY, cordX, cordY + 1);
 			afterMove();
-			cordY++;;
+			cordY++;
+			movesRemaining--;
 			myKeys[1] = false;
 			myKeys[4] = false;
 		}
@@ -154,7 +158,8 @@ void gameClass::doLogic(const ALLEGRO_EVENT &ev)
 		{
 			makeMove(cordX, cordY, cordX - 1, cordY);
 			afterMove();
-			cordX--;;
+			cordX--;
+			movesRemaining--;
 			myKeys[2] = false;
 			myKeys[4] = false;
 		}
@@ -162,7 +167,8 @@ void gameClass::doLogic(const ALLEGRO_EVENT &ev)
 		{
 			makeMove(cordX, cordY, cordX + 1, cordY);
 			afterMove();
-			cordX++;;
+			cordX++;
+			movesRemaining--;
 			myKeys[3] = false;
 			myKeys[4] = false;
 		}
@@ -254,13 +260,21 @@ void gameClass::paint()
 
 		gameObject.paint(returnX(), returnY());
 
+		char temp[10];
+
+		_itoa_s(movesRemaining, temp, 10);
+
+		al_draw_text(scoreFont, al_map_rgb(255, 255, 255), 700, 20, 0, "MOVES: ");
+
+		al_draw_text(scoreFont, al_map_rgb(255, 255, 255), 860, 20, 0, temp);
+
 		al_draw_text(signFont, al_map_rgb(255, 255, 255), 840, 700, 0, "Pawel Nowak 2014");
 
 		al_flip_display();
 	}
 }
 
-void gameClass::startGame()
+int gameClass::startGame()
 {
 	prepareTable();
 	paint();
@@ -275,20 +289,28 @@ void gameClass::startGame()
 		doLogic(ev);
 
 		paint();
+
+		if (movesRemaining <= 0)
+			doExit = true;
 	}
+	return myScore.retrunPoints();
 }
 
 void gameClass::go()
 {
-	int menuCounter;
+	int menuCounter, newScore;
 	menuCounter = myMenu.run_menu(display, event_queue, signFont, menuFont, banerFont, timer);
 	switch (menuCounter)
 	{
 	case 0 :
-		startGame();
+		newScore=startGame();
+		myBestScores.load_from_file();
+		myBestScores.add_new_best(newScore);
+		myBestScores.update_file();
 		break;
 	case 1 :
-		//highscores
+		myBestScores.load_from_file();
+		myBestScores.paint(menuFont);
 		break;
 	}
 }

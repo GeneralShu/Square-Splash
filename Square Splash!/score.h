@@ -10,9 +10,12 @@ private:
 	char* name;
 public:
 	score();
+	score(int points);
 	~score();
 	void calculateScore(int crashCounter);
 	void paint(ALLEGRO_FONT* font);
 	void zeroPoints();
+	int retrunPoints();
+	bool operator < (const score &ob) const;
 };
 

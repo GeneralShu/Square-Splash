@@ -51,9 +51,6 @@ void userInterface::paint(ALLEGRO_FONT *signFont, ALLEGRO_FONT *menuFont, ALLEGR
 
 		break;
 	}
-
-	
-
 	al_flip_display();
 }
 
