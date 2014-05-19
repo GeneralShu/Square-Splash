@@ -3,7 +3,7 @@ class gameGraphics
 {
 public:
 	gameGraphics();
-	~gameGraphics();
+	virtual ~gameGraphics();
 	virtual void paint();
 };
 

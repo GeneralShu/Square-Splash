@@ -21,6 +21,5 @@ public:
 	void setHorizontal(int x, int y, int counter);
 	void fallBricks();
 	bool fillTable();
-	void setBonuses(int maxBonus);
 };
 

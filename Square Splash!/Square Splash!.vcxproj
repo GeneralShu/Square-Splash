@@ -89,7 +89,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="userInterface.cpp" />
     <ClCompile Include="score.cpp" />
-    <ClCompile Include="superBrick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bestScores.h" />
@@ -100,7 +99,6 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="userInterface.h" />
     <ClInclude Include="score.h" />
-    <ClInclude Include="superBrick.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Square Splash!.rc" />

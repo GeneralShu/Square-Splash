@@ -22,7 +22,7 @@ void userInterface::paint(ALLEGRO_FONT *signFont, ALLEGRO_FONT *menuFont, ALLEGR
 {
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 
-	al_draw_text(banerFont, al_map_rgb(0, 102, 0), MIDDLEX, BASEY-150, ALLEGRO_ALIGN_CENTRE, "Square Splash! v1.0");
+	al_draw_text(banerFont, al_map_rgb(0, 102, 0), MIDDLEX, BASEY-150, ALLEGRO_ALIGN_CENTRE, "Square Splash! v1.1");
 
 	switch (menuCounter)
 	{

@@ -21,9 +21,6 @@
     <ClCompile Include="gameClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameGraphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gameTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,13 +30,13 @@
     <ClCompile Include="score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="superBrick.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="bestScores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="userInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameGraphics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,16 +47,10 @@
     <ClInclude Include="gameClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameGraphics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="gameTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="score.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="superBrick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="bestScores.h">
@@ -69,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameGraphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

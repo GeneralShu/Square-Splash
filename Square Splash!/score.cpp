@@ -1,5 +1,4 @@
 #include "score.h"
-#include <iostream>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_primitives.h>
@@ -8,7 +7,6 @@
 score::score()
 {
 	points = 0;
-	name = "Template";
 }
 
 score::score(int points) : points(points){}
@@ -46,4 +44,12 @@ bool score::operator < (const score &ob) const
 		return true;
 	else
 		return false;
+}
+
+ifstream& operator >> (ifstream& in, score &h)
+{
+	int temp;
+	in >> temp;
+	h.addScore(temp);
+	return in;
 }

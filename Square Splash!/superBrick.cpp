@@ -31,5 +31,5 @@ void superBrick::paint(int y, int x)
 			localG = localG - 2;
 		al_draw_line(STARTXTABLE + 5 + x * BRICKSIZE, i + STARTYTABLE + 5 + y * BRICKSIZE, x * BRICKSIZE + BRICKSIZE, i + STARTYTABLE + 5 + y * BRICKSIZE, al_map_rgb(localR, localG, localB), 1);
 	}
-	al_draw_line(STARTXTABLE + 5 + x * BRICKSIZE, STARTYTABLE + 5 + y * BRICKSIZE, x * BRICKSIZE + BRICKSIZE, STARTYTABLE + 5 + y * BRICKSIZE, al_map_rgb(0, 0, 0), 5);
+	al_draw_line(STARTXTABLE + 5 + x * BRICKSIZE, STARTYTABLE + 5 + y * BRICKSIZE, x * BRICKSIZE + BRICKSIZE, STARTYTABLE + 5 + y * BRICKSIZE, al_map_rgb(255, 255, 255), 15);
 }

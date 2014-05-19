@@ -20,8 +20,9 @@ bestScores::~bestScores()
 
 void bestScores::load_from_file()
 {
-	int exp=1, temp;
-	fstream file;
+	int temp=0;
+	char exp[30] = "Cannot find best scores file";
+	ifstream file;
 
 	for (int k = 0; k < myScores.size(); k++)
 		myScores.pop_back();
@@ -33,8 +34,8 @@ void bestScores::load_from_file()
 
 	while ( !file.eof() )
 	{
-			file >> temp;
 			score newScore(temp);
+			file >> newScore;
 			myScores.push_back(newScore);
 	}
 
@@ -48,7 +49,6 @@ void bestScores::paint(ALLEGRO_FONT *menuFont)
 
 	for (int k = 0; k < myScores.size() - 1; k++)
 	{
-		//char number[3] = (k + 1) + '. ';
 		char temp[10];
 		_itoa_s(myScores.at(k).retrunPoints(), temp, 10);
 		al_draw_text(menuFont, al_map_rgb(255, 255, 255), MIDDLEX, BASEY + k*50, ALLEGRO_ALIGN_CENTRE, temp);

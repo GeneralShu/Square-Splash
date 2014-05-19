@@ -2,7 +2,8 @@
 #include "gameGraphics.h"
 
 
-class brick : public gameGraphics
+class brick 
+	: public gameGraphics
 {
 protected:
 	int R, G, B;
@@ -10,7 +11,7 @@ protected:
 public:
 	brick();
 	void randomColor();
-	~brick();
+	virtual ~brick();
 	void paint(int x, int y);
 	bool operator == (const brick &ob) const;
 	void swapBricks(brick &ob);

@@ -11,6 +11,9 @@
 brick::brick()
 {
 	ifDelete = false;
+	R = 0; 
+	B = 0; 
+	G = 0;
 }
 
 void brick::randomColor()

@@ -11,6 +11,8 @@
 #define STARTXTABLE 5
 #define STARTYTABLE 5
 #define FPS 30
+#define MIDDLEX 512
+#define BASEY 200
 
 gameClass::gameClass()
 {
@@ -119,11 +121,9 @@ void gameClass::afterMove()
 
 	paint();
 	gameObject.fallBricks();
-    //al_rest(2);
 
 	paint();
 	nextCheck=gameObject.fillTable();
-	//al_rest(2);
 
 	if (nextCheck == true)
 		afterMove();
@@ -309,7 +309,18 @@ void gameClass::go()
 		myBestScores.update_file();
 		break;
 	case 1 :
-		myBestScores.load_from_file();
+		try
+		{
+			myBestScores.load_from_file();
+		}
+		catch (char temp[30])
+		{
+			al_clear_to_color(al_map_rgb(0, 0, 0));
+			al_draw_text(menuFont, al_map_rgb(255, 255, 255), MIDDLEX, BASEY - 100, ALLEGRO_ALIGN_CENTRE, temp);
+			al_flip_display();
+			al_rest(3);
+			break;
+		}
 		myBestScores.paint(menuFont);
 		break;
 	}

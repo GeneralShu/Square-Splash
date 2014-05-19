@@ -36,12 +36,13 @@ void gameTable::paint(int cordX, int cordY)
 {
 	al_draw_rectangle(3, 3, 687, 687, al_map_rgb(64, 64, 64), 3);
 	al_draw_rectangle(STARTXTABLE + cordX * BRICKSIZE, STARTYTABLE + cordY * BRICKSIZE, BRICKSIZE + STARTXTABLE + cordX * BRICKSIZE, BRICKSIZE + STARTXTABLE + cordY * BRICKSIZE, al_map_rgb(64, 64, 64), 5);
-
+	brick *temp;
 	for (int i = 0; i < WIDTH; i++)
 	{
 		for (int k = 0; k < LENGTH; k++)
 		{
-			table[k][i].paint(k, i);
+			temp = &table[k][i];
+			temp->paint(k, i);
 		}
 	}
 }
@@ -67,7 +68,6 @@ int gameTable::checkColision(int x, int y)
 	setVertical(x, y, vertical);
 	if (horizontal >= 3 && vertical >= 3)
 	{
-		setBonuses(horizontal);
 		return horizontal + vertical;
 	}
 	else if (horizontal >= 3)
@@ -152,21 +152,4 @@ bool gameTable::fillTable()
 		}
 	}
 	return ifFilled;
-}
-
-void gameTable::setBonuses(int maxBonus)
-{
-	int column, row;
-	while (1 == 1)
-	{
-		row = rand() % 8;
-		column = rand() % 8;
-		if (table[column][row].ifBlack() == false)
-		{
-			//superBrick newBrick(1);
-			table[column][row].~brick();
-			table[column][row] = superBrick(1);
-		}
-	}
-
 }
