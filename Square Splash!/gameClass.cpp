@@ -1,6 +1,7 @@
 #include "gameClass.h"
 #include "gameTable.h"
 #include "userInterface.h"
+#include "bestScores.h"
 #include "allegro5/allegro.h"
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_ttf.h>
@@ -16,6 +17,7 @@
 
 gameClass::gameClass()
 {
+
 	doExit = false;
 
 	myKeys[0] = false;
@@ -27,7 +29,7 @@ gameClass::gameClass()
 	cordX = WIDTH / 2;
 	cordY = LENGTH / 2;
 
-	movesRemaining = 30;
+	movesRemaining = 2;
 
 	al_init();
 
@@ -304,7 +306,15 @@ void gameClass::go()
 	{
 	case 0 :
 		newScore=startGame();
-		myBestScores.load_from_file();
+		try
+		{
+			myBestScores.load_from_file();
+		}
+		catch (char temp[30])
+		{
+			myBestScores.make_best_scores_file();
+			myBestScores.load_from_file();
+		}
 		myBestScores.add_new_best(newScore);
 		myBestScores.update_file();
 		break;

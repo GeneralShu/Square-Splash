@@ -9,16 +9,12 @@
 
 using namespace std;
 
-bestScores::bestScores()
+/*template<typename T>
+bestScores<T>::~bestScores()
 {
 }
-
-
-bestScores::~bestScores()
-{
-}
-
-void bestScores::load_from_file()
+template<typename T>
+void bestScores<T>::load_from_file()
 {
 	int temp=0;
 	char exp[30] = "Cannot find best scores file";
@@ -41,8 +37,8 @@ void bestScores::load_from_file()
 
 	file.close();
 }
-
-void bestScores::paint(ALLEGRO_FONT *menuFont)
+template<typename T>
+void bestScores<T>::paint(ALLEGRO_FONT *menuFont)
 {
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 	al_draw_text(menuFont, al_map_rgb(255, 255, 255), MIDDLEX, BASEY - 100, ALLEGRO_ALIGN_CENTRE, "HIGH SCORES:");
@@ -57,8 +53,8 @@ void bestScores::paint(ALLEGRO_FONT *menuFont)
 	al_flip_display();
 	al_rest(3);
 }
-
-void bestScores::add_new_best(const score &newScore)
+template<typename T>
+void bestScores<T>::add_new_best(const score &newScore)
 {
 	myScores.push_back(newScore);
 	int counter = myScores.size();
@@ -72,17 +68,27 @@ void bestScores::add_new_best(const score &newScore)
 	}
 	myScores.pop_back();
 }
-
-void bestScores::update_file()
+template<typename T>
+void bestScores<T>::update_file()
 {
-	fstream file;
+	ofstream file;
 
 	file.open("data.txt", std::ios::out | std::ofstream::trunc);
 
-	for (int k = 0; k < BESTCAPACITY; k++)
+	for (int k = 0; k < myScores.size()-1; k++)
 	{
-		file << myScores.at(k).retrunPoints() << "\n";
+		file << myScores.at(k) << "\n";
 	}
 
 	file.close();
 }
+template<typename T>
+void bestScores<T>::make_best_scores_file()
+{
+	ofstream file("data.txt");
+	for (int i = 0; i < BESTCAPACITY; i++)
+	{
+		file << 0 << "\n";
+	}
+	file.close();
+}*/

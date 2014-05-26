@@ -30,9 +30,6 @@
     <ClCompile Include="score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bestScores.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="userInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

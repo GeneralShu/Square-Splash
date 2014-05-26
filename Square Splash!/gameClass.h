@@ -14,7 +14,7 @@ private:
 	userInterface myMenu;
 	gameTable gameObject;
 	score myScore;
-	bestScores myBestScores;
+	myIntScores myBestScores;
 
 	ALLEGRO_DISPLAY *display;
 	ALLEGRO_TIMER *timer;

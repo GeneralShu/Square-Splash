@@ -22,5 +22,6 @@ public:
 	int retrunPoints();
 	bool operator < (const score &ob) const;
 	friend ifstream& operator >> (ifstream& in, score &h);
+	friend ofstream& operator << (ofstream& out, score &h);
 };
 

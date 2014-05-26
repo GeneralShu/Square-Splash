@@ -53,3 +53,9 @@ ifstream& operator >> (ifstream& in, score &h)
 	h.addScore(temp);
 	return in;
 }
+
+ofstream& operator << (ofstream& out, score &h)
+{
+	out << h.points;
+	return out;
+}
