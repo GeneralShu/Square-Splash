@@ -10,18 +10,18 @@ class score :
 	public gameGraphics
 {
 private:
-	int points;
-	void addScore(int temp){ points = temp; }
+	int points; //zmienna przechowujaca wartosc punktow
+	void addScore(int temp){ points = temp; } //metoda dodajaca ilosc punktow do points, konieczna do dzialania operatora ifstream
 public:
-	score();
-	score(int points);
-	~score();
-	void calculateScore(int crashCounter);
-	void paint(ALLEGRO_FONT* font);
-	void zeroPoints();
-	int retrunPoints();
-	bool operator < (const score &ob) const;
-	friend ifstream& operator >> (ifstream& in, score &h);
-	friend ofstream& operator << (ofstream& out, score &h);
+	score(); //konstruktor bazowt
+	score(int points); //konstruktor z parametrem do ustawienia poczatkowej wartosci points
+	~score(); //bazowy destruktor
+	void calculateScore(int crashCounter); //oblicza ile punktow ma zostac dodane do points na podstawie zmiennej
+	void paint(ALLEGRO_FONT* font); //wypisuje/wyrysowuje wynik podczas rozgrywki
+	void zeroPoints(); //zeruje wartosc points
+	int retrunPoints(); //zwraca wartosc zmiennej points
+	bool operator < (const score &ob) const; //przeladowany operator do porownywania punktow
+	friend ifstream& operator >> (ifstream& in, score &h); //przeladowany operator wczytywania z pliku
+	friend ofstream& operator << (ofstream& out, score &h); //przeladowany operator zapisywania do pliku
 };
 

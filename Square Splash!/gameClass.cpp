@@ -29,7 +29,7 @@ gameClass::gameClass()
 	cordX = WIDTH / 2;
 	cordY = LENGTH / 2;
 
-	movesRemaining = 2;
+	movesRemaining = 30;
 
 	al_init();
 

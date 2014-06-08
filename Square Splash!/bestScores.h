@@ -24,13 +24,13 @@ class bestScores :
 protected:
 	vector<T> myScores;
 public:
-	bestScores();
-	~bestScores();
-	void load_from_file();
-	void paint(ALLEGRO_FONT *menuFont);
-	void add_new_best(const score &newScore);
-	void update_file();
-	void make_best_scores_file();
+	bestScores(); //konstruktor bazowy
+	~bestScores(); //destruktor bazowy
+	void load_from_file(); //metoda pobierajaca najlepsze wyniki z pliku
+	void paint(ALLEGRO_FONT *menuFont); //dziedziczona metoda do wypisywania listy najlepszych wynikow, jest to metoda specjalizowana
+	void add_new_best(const score &newScore); //dodaje nowy najleposzy wynik do wektora
+	void update_file(); //podmienia najlepsze wyniki w pliku data.txt
+	void make_best_scores_file(); //jesli plik data.txt nie istnieje, tworzy go z samymi 0
 };
 
 typedef bestScores <score> myIntScores;
@@ -61,15 +61,15 @@ void bestScores<T>::load_from_file()
 
 	while (!file.eof())
 	{
-		score newScore(temp);
+		T newScore(temp);
 		file >> newScore;
 		myScores.push_back(newScore);
 	}
 
 	file.close();
 }
-template<typename T>
-void bestScores<T>::paint(ALLEGRO_FONT *menuFont)
+template<typename score>
+void bestScores<score>::paint(ALLEGRO_FONT *menuFont)
 {
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 	al_draw_text(menuFont, al_map_rgb(255, 255, 255), MIDDLEX, BASEY - 100, ALLEGRO_ALIGN_CENTRE, "HIGH SCORES:");

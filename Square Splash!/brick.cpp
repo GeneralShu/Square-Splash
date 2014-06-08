@@ -112,7 +112,6 @@ void brick::setBlack()
 	this->B = 0;
 }
 
-
 void brick::set()
 {
 	ifDelete = false;

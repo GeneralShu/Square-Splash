@@ -23,8 +23,9 @@ gameTable::gameTable()
 
 gameTable::~gameTable()
 {
-	//for (int i = 0; i < WIDTH; i++) delete this->table[i];
-	//delete this->table;
+	for (int i = 0; i < WIDTH; i++) 
+		delete[] table[i];
+	delete[] table;
 }
 
 void gameTable::swapOnTable(int x1, int y1, int x2, int y2)
